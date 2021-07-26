@@ -1,4 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
+
 
 const TodoForm = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     const inputTextHandler = (e) => {
@@ -45,4 +49,11 @@ const TodoForm = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     )
 }
 
-export default TodoForm;
+const mapDispatchToProps = (dispatch) => ({
+    addTodo: (todo) => dispatch(actions.addTodo(todo))
+  })
+  
+  export default connect(
+    null,
+    mapDispatchToProps
+  )(TodoForm);

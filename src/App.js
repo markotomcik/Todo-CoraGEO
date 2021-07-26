@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList';
+import { connect } from 'react-redux';
+import * as actions from './actions';
+
+
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -48,4 +52,14 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  tasks: state.tasks
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  initTodos: (todos) => dispatch(actions.initTodos(todos))
+})
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
