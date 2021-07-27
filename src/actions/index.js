@@ -31,6 +31,8 @@ export const softDeleteTodo = todo => ({
   }
 })
 
+// tu treba v payload posielat id nie name ani cleared ani complete
+// pozri si ../reducers/todos.js:36
 export const deleteTodo = todo => ({
   type: 'DELETE_TODO',
   payload: {

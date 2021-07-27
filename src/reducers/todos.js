@@ -33,6 +33,9 @@ const todos = (state = [], action) => {
           softdeleted: !todo.softdeleted
         } : todo
       })
+    // ked sa pozries tu vidis ze z payloadu pouzivas id ktore potom porovnavas
+    // 1. id ani neposielas
+    // 2. posielas zbytocnosti, ktore mozes vyhodit
     case 'DELETE_TODO':
       return state.filter((todo) => todo.id !== action.payload.id)
     default:

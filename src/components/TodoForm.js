@@ -9,6 +9,8 @@ const TodoForm = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
         console.log(e.target.value);
         setInputText(e.target.value);
     };
+
+    // stazujes sa ze ti to nejde a pritom sa pozri ako pridavas tasky:
     const submitTodoHandler = (e) => {
         e.preventDefault();
         if(inputText !== ''){
@@ -19,6 +21,15 @@ const TodoForm = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
             setInputText('');
         }
     };
+    // kedze tasky nepridavas cez reducer, reducer ostava prazdny a nema s cim pracovat
+    // tasky mas pridavat cez reducer tzn volat akciu co si si definoval dole na riadku 58
+    // takze zmenit to na funkciu this.props.addTodo()
+    // a aby ti to fungovalo takto ako som napisal, zmenit cely tento komponent z funkcie na class
+    // nic narocne iba return zaobalit do funkcie render() atd
+    // takto by ti to malo fungovat
+    // nezabudni pozriet koment v ../actions/index.js:34
+
+
     const statusHandler = (e) => {
         setStatus(e.target.value)
     }
